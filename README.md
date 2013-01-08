@@ -39,6 +39,14 @@ configured as follows in lieu of giving login and password.
 
 See http://developer.github.com/v3/oauth/ for more information.
 
+In order to use the repository loader, you will also need to configure
+the following:
+
+    edu.unl.cse.git.dbengine=neo4j
+    edu.unl.cse.git.dburl=graph.db
+    edu.unl.cse.git.repositories=pridkett/gitminer
+    edu.unl.cse.git.repositories.removeAfterLoad=true
+
 Execution
 ---------
 Execution of GitMiner is a two step process that consists of first using the
@@ -201,6 +209,24 @@ for the tool to function.
   **default:** `github.db`<br>
   **description:** the URL of the database to save to. For neo4j this is
   simply the directory where the database exists.
+
+* **name:** `edu.unl.cse.git.dbengine`<br>
+  **default:** no default<br>
+  **description:** Same as `net.wagstrom.research.github.dbengine`
+
+* **name:** `edu.unl.cse.git.dbpath`<br>
+  **default:** no default<br>
+  **description:** Same as `net.wagstrom.research.github.dburl`
+
+* **name:** `edu.unl.cse.git.repositories`<br>
+  **default:** no default<br>
+  **description:** Same as `net.wagstrom.research.github.projects`
+
+* **name:** `edu.unl.cse.git.repositories.removeAfterLoad`<br>
+  **default:** no default<br>
+  **description:** Whether or not to remove the unprocessed local
+  repository data (stored in /tmp/repo_loader by default) after import.
+  Must be set!
 
 sample data
 -----------
